@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3000",
+  "proxy": "https://mighty-hamlet-92640.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",

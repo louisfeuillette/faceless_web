@@ -143,7 +143,7 @@ function OptionalQuizz(props) {
         console.log(token, 'tokenFront LORS DU SAVE')
     };
 
-    if(token == null){
+    if(token == ''){
         return (
             <Redirect to = "/" />
         )
