@@ -156,7 +156,6 @@ function ProfilScreen(props) {
         }
 
         if (response.userSaved.password) {
-            setPassword(response.userSaved.password);
             setMdpVisible(false);
         }
 

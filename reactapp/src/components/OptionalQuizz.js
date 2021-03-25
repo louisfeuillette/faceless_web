@@ -21,7 +21,7 @@ function OptionalQuizz(props) {
     const [imgAvatarSelected, setImgAvatarSelected] = useState(
         "https://i.imgur.com/atDrheA.png"
     );
-
+    const [tokenState, setTokenState] = useState(props.tokenFromStore)
     const [error, setError] = useState("");
 
     // event du clic pour set sa description + envoi d'erreur
@@ -129,6 +129,7 @@ function OptionalQuizz(props) {
         setPage(page + 1);
     };
 
+    console.log(tokenState, 'tokenSTATE OPTIONAL QUIZZ')
     console.log(props.tokenFromStore, 'tokenSTORE OPTIONAL QUIZZ')
     if(props.tokenFromStore == '' || null){
         return (
