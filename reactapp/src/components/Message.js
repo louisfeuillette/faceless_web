@@ -24,6 +24,7 @@ function Message(props) {
     const [showProfil, setShowProfil] = useState(false);
     const [toId, setToId] = useState('')
 
+    // déclenche la route pour récupérer l'ensemble des messages à afficher
     useEffect(() => {
         const loadDATA = async () => {
             var rawResponse = await fetch("/message", {
@@ -38,12 +39,14 @@ function Message(props) {
         loadDATA();
     }, []);
 
+    // event du clic sur la card de l'utilisateur avec qui on veut converser 
     const handleShowCard = (arg) => {
         setUserCardToShow(arg.userCard);
         setConvId(arg.convId)
         setToId(arg.userCard._id)
         setShowProfil(true);
 
+        // déclenche la route qui permet d'afficher l'ensemble des msg avec un user
         const loadDATA = async () => {
             var rawResponse = await fetch("/get-message", {
                 method: "POST",
@@ -56,6 +59,7 @@ function Message(props) {
         loadDATA();
     };
 
+    // déclenche la route d'envoie de msg 
     const handleTextToSend = () => {
         const loadDATA = async () => {
             var rawResponse = await fetch("/send-message", {
@@ -70,6 +74,7 @@ function Message(props) {
         loadDATA();
     }
 
+    // map pour dynamiser l'affichage de tout les derniers msg reçu, trié par user avec qui je converse (card de gauche)
     var lastMsg = allLastMessages.map((element, i) => {
         return (
             <div
@@ -97,6 +102,7 @@ function Message(props) {
         );
     });
 
+    // map sur la discussion + ternaire pour le style entre msg envoyé et reçu (card du milieu)
     var msg = message.map((element, i) => {
         return (
             <div key={i} className={element.from_id === myUser ? "myMsgStyle" : "hisMsgStyle"}>
@@ -106,8 +112,6 @@ function Message(props) {
             </div>
         )
     })
-
-    console.log(props.token, "token message page")
 
     if(props.token == ""){
         return (

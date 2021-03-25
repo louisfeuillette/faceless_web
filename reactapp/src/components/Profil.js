@@ -29,9 +29,8 @@ function ProfilScreen(props) {
     const [mdpVisible, setMdpVisible] = useState(false);
     const [descriptionVisible, setDescriptionVisible] = useState(false);
 
+    // load les datas de l'utilisateur grace au token (map state to props)
     useEffect(() => {
-        // LOAD LES DATAS DE L'UTILISATEUR GRACE AU TOKEN [MAP STATE TO PROPS]
-
         async function loadDATA() {
             var rawResponse = await fetch(`/load-profil`, {
                 method: "POST",
@@ -39,7 +38,6 @@ function ProfilScreen(props) {
                 body: `tokenFront=${props.token}`,
             });
             var response = await rawResponse.json();
-            console.log(response, "RESPONSE DU LOAD DATA");
 
             var avatar = response.userFromBack.avatar;
             setAvatar(avatar);
@@ -67,19 +65,18 @@ function ProfilScreen(props) {
         loadDATA();
     }, []);
 
+    // event pour la recherche de ville avec l'API 
     const onChangeText = async (search) => {
+
         setSearch(search);
-        console.log(search, "Search Town");
 
         // fetcher les villes dès qu'il y a plus de 2 caractères saisis dans le champs
         if (search.length > 2) {
         const uri = `https://api-adresse.data.gouv.fr/search/?q=${search}&type=municipality&autocomplete=1`;
-        //   console.log("uri", uri)
         const data = await fetch(uri);
         const body = await data.json();
         const townsAPI = body.features;
         const townsApiName = [];
-        //   console.log("townsAPI", townsAPI)
         townsAPI &&
             townsAPI.map((town) => {
             return townsApiName.push({
@@ -91,11 +88,9 @@ function ProfilScreen(props) {
         setTownList(townsApiName);
         setSearch(search);
         }
-
-        console.log(search, "<------search");
-        console.log(townList, "<------townList");
     };
 
+    // renvoi une liste de villes selon l'input onChangeText
     const TownListComponent = townList.map((item, i, arr) => {
         return (
         <div key={i}>
@@ -116,18 +111,22 @@ function ProfilScreen(props) {
         );
     });
 
+    // permet de switch entre input et email en dur 
     const handleClickEmail = () => {
         setEmailVisible(!emailVisible);
     };
 
+    // permet de switch entre input et mdp en dur 
     const handleClickPassword = () => {
         setMdpVisible(!mdpVisible);
     };
 
+    // permet de switch entre input et mdp en dur 
     const handleClickDescription = () => {
         setDescriptionVisible(!descriptionVisible);
     };
 
+    // ajoute ou enleve un probleme 
     const handleSelectProblems = (element) => {
         var problemsCopy = [...problems];
         if (problemsCopy.includes(element) == false) {
@@ -139,6 +138,7 @@ function ProfilScreen(props) {
         }
     };
 
+    // declenche la route pour update et save ton user en BDD 
     const handleSaveProfil = () => {
         async function updateUser() {
         var rawResponse = await fetch("/update-profil", {

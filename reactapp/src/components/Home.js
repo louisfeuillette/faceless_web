@@ -16,8 +16,7 @@ function HomeScreen(props) {
     const [messageToSend, setMessageToSend] = useState("")
     const [pseudo, setPseudo] = useState('')
 
-    console.log(props.token, 'token USER STORE')
-
+    // useEffect permettant de load les profils à afficher
     useEffect(() => {
         const loadDATA = async ()=> {
             var rawResponse = await fetch('/get-user', {
@@ -32,12 +31,12 @@ function HomeScreen(props) {
         loadDATA();
     }, [props.token]);
 
-    console.log(userToDisplay, " LES USERS");
-
+    // set le pseudo de l'utilisateur dans un état lors du clic sur l'icône envoyer
     const handleClick = (arg) => {
         setPseudo(arg.pseudo)
     }
 
+    // déclenche la route pour envoyer le message
     const handleTextToSend = (arg) => {
         console.log(arg._id)
         const createConv = async ()=> {
@@ -53,6 +52,7 @@ function HomeScreen(props) {
         setPseudo("")
     }
 
+    // map sur les utilisateur a display dans la home du user
     var cardToSwipe = userToDisplay.map((e, i) => {
         return (
         <div className="card" key={i}>
@@ -141,7 +141,7 @@ function HomeScreen(props) {
         );
     });
 
-    if(props.token == ""){
+    if(props.token == "" || null){
         return (
             <Redirect to = "/" />
         )
@@ -158,5 +158,5 @@ function HomeScreen(props) {
 function mapStateToProps(state) {
     return { token: state.tokenUser };
 }
-  
+
 export default connect(mapStateToProps, null)(HomeScreen);

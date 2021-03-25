@@ -17,25 +17,23 @@ function OptionalQuizz(props) {
     const [search, setSearch] = useState("");
     const [townList, setTownList] = useState([]);
     const [coords, setCoords] = useState([]);
-    // const [selectedTown, setSelectedTown] = useState("");
     const [gender, setGender] = useState("");
     const [imgAvatarSelected, setImgAvatarSelected] = useState(
         "https://i.imgur.com/atDrheA.png"
     );
 
-    var token = props.tokenFromStore.token
-
     const [error, setError] = useState("");
 
+    // event du clic pour set sa description + envoi d'erreur
     const handleDescription = () => {
         if (description !== "") {
         setPage(page + 1);
         } else {
         setError("champs vide ! tu peux tout de même passer à la suite");
         }
-        console.log(description, "<------description");
     };
 
+    // event pour la recherche de ville avec l'API 
     const onChangeText = async (search) => {
         setSearch(search);
         console.log(search, "Search Town");
@@ -43,12 +41,10 @@ function OptionalQuizz(props) {
         // fetcher les villes dès qu'il y a plus de 2 caractères saisis dans le champs
         if (search.length > 2) {
         const uri = `https://api-adresse.data.gouv.fr/search/?q=${search}&type=municipality&autocomplete=1`;
-        //   console.log("uri", uri)
         const data = await fetch(uri);
         const body = await data.json();
         const townsAPI = body.features;
         const townsApiName = [];
-        //   console.log("townsAPI", townsAPI)
         townsAPI &&
             townsAPI.map((town) => {
             return townsApiName.push({
@@ -60,10 +56,9 @@ function OptionalQuizz(props) {
         setTownList(townsApiName);
         setSearch(search);
         }
-        console.log(search, "<------search");
-        console.log(townList, "<------townList");
     };
 
+    // renvoi une liste de villes selon l'input onChangeText
     const TownListComponent = townList.map((item, i, arr) => {
         return (
         <div key={i}>
@@ -100,6 +95,7 @@ function OptionalQuizz(props) {
         "https://i.imgur.com/fJYbMZO.png",
     ];
 
+    // map sur l'ensemble des images pour choisir son avatar
     var imgAvatar = imgAvatarSrc.map((img, key) => {
         return (
         <img
@@ -112,38 +108,33 @@ function OptionalQuizz(props) {
         );
     });
 
+    // declenche la route pour update le profil precedement save en BDD lors de la fin du quizz optionnel 
+    // petite sécurité : save le token seulement lorsque l'on reçoit la réponse du back
     const handleClickNextSaveUser = async () => {
-
         var rawResponse = await fetch(`/sign-up-second-step`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `problemDescriptionFront=${description}&localisationFront=${
-            search}&coordinatesFront=${JSON.stringify(coords)}&genderFront=${gender}&avatarFront=${imgAvatarSelected}&tokenFront=${token}`,
+            search}&coordinatesFront=${JSON.stringify(coords)}&genderFront=${gender}&avatarFront=${imgAvatarSelected}&tokenFront=${props.tokenFromStore}`,
         });
         var response = await rawResponse.json();
-        console.log(response, "<------ response after click save");
-        console.log(response.userUpdated, "<------ USER SAVED after click save");
 
         if (response.result == true) {
             props.addToken(response.userUpdated.token)
         }
     };
 
+    // page precedente du quizz optionnel
     const handleClickBack = () => {
         setPage(page - 1);
     };
 
+    // page suivante du quizz optionnel
     const handleClickNext = () => {
         setPage(page + 1);
-        console.log(description, 'problemDescriptionFront LORS DU SAVE')
-        console.log(search, 'localisationFront LORS DU SAVE')
-        console.log(coords, 'coordinatesFront LORS DU SAVE')
-        console.log(gender, 'genderFront LORS DU SAVE')
-        console.log(imgAvatarSelected, 'avatarFront LORS DU SAVE')
-        console.log(token, 'tokenFront LORS DU SAVE')
     };
 
-    if(token == ''){
+    if(props.tokenFromStore == '' || null){
         return (
             <Redirect to = "/" />
         )
