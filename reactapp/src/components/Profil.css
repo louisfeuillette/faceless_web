@@ -1,3 +1,6 @@
+body {
+  background-color: #feeddb;
+}
 .containerProfil {
   height: 100%;
   display: flex;

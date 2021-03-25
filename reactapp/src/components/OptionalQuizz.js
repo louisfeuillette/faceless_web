@@ -109,7 +109,6 @@ function OptionalQuizz(props) {
     });
 
     // declenche la route pour update le profil precedement save en BDD lors de la fin du quizz optionnel 
-    // petite sécurité : save le token seulement lorsque l'on reçoit la réponse du back
     const handleClickNextSaveUser = async () => {
         var rawResponse = await fetch(`/sign-up-second-step`, {
         method: "POST",
@@ -118,10 +117,6 @@ function OptionalQuizz(props) {
             search}&coordinatesFront=${JSON.stringify(coords)}&genderFront=${gender}&avatarFront=${imgAvatarSelected}&tokenFront=${props.tokenFromStore}`,
         });
         var response = await rawResponse.json();
-
-        if (response.result == true) {
-            props.addToken(response.userUpdated.token)
-        }
     };
 
     // page precedente du quizz optionnel
@@ -134,6 +129,7 @@ function OptionalQuizz(props) {
         setPage(page + 1);
     };
 
+    console.log(props.tokenFromStore, 'tokenSTORE OPTIONAL QUIZZ')
     if(props.tokenFromStore == '' || null){
         return (
             <Redirect to = "/" />

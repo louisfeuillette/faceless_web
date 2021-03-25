@@ -101,12 +101,11 @@ function Quizz(props) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `emailFront=${email}&passwordFront=${password}&pseudoFront=${pseudo}&ageFront=${age}&problemsFront=${JSON.stringify(
         problems
-      )}`,
-    });
-    var response = await rawResponse.json();
-    console.log(response, "SAVED USER");
-
-    props.onAddUserInfo({ token: response.user.token });
+        )}`,
+      });
+      var response = await rawResponse.json();
+      console.log(response, "SAVED USER");
+      props.onAddUserInfo({ token: response.user.token });
   };
 
   return (
