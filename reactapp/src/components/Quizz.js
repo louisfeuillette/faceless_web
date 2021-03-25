@@ -105,7 +105,7 @@ function Quizz(props) {
       });
       var response = await rawResponse.json();
       console.log(response, "SAVED USER");
-      props.onAddUserInfo({ token: response.user.token });
+      props.onAddUserInfo(response.user.token);
   };
 
   return (
