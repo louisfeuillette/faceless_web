@@ -97,7 +97,7 @@ router.post('/sign-up-second-step', async function (req, res, next) {
   var avatar = req.body.avatarFront;
   
   // si la localisation du front n'est pas définit, je mets la localisation = à France
-  req.body.localisationFront == 'undefined' || req.body.localisationFront == undefined ? localisation = 'France' : localisation = req.body.localisationFront;
+  req.body.localisationFront == 'undefined' || req.body.localisationFront == undefined || req.body.localisationFront == '' ? localisation = 'France' : localisation = req.body.localisationFront;
   
   // si le genre n'est pas définit, je mets le genre à string vide
   req.body.genderFront == 'undefined' ? gender = '' : gender = req.body.genderFront;
