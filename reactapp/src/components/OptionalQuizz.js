@@ -131,7 +131,7 @@ function OptionalQuizz(props) {
 
     console.log(tokenState, 'tokenSTATE OPTIONAL QUIZZ')
     console.log(props.tokenFromStore, 'tokenSTORE OPTIONAL QUIZZ')
-    if(props.tokenFromStore == '' || null){
+    if(props.tokenFromStore == ''){
         return (
             <Redirect to = "/" />
         )
