@@ -21,7 +21,7 @@ function OptionalQuizz(props) {
     const [imgAvatarSelected, setImgAvatarSelected] = useState(
         "https://i.imgur.com/atDrheA.png"
     );
-    const [tokenState, setTokenState] = useState(props.tokenFromStore)
+    const [tokenState, setTokenState] = useState(props.token)
     const [error, setError] = useState("");
 
     // event du clic pour set sa description + envoi d'erreur
@@ -114,7 +114,7 @@ function OptionalQuizz(props) {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `problemDescriptionFront=${description}&localisationFront=${
-            search}&coordinatesFront=${JSON.stringify(coords)}&genderFront=${gender}&avatarFront=${imgAvatarSelected}&tokenFront=${props.tokenFromStore}`,
+            search}&coordinatesFront=${JSON.stringify(coords)}&genderFront=${gender}&avatarFront=${imgAvatarSelected}&tokenFront=${props.token}`,
         });
         var response = await rawResponse.json();
     };
@@ -129,13 +129,6 @@ function OptionalQuizz(props) {
         setPage(page + 1);
     };
 
-    console.log(tokenState, 'tokenSTATE OPTIONAL QUIZZ')
-    console.log(props.tokenFromStore, 'tokenSTORE OPTIONAL QUIZZ')
-    if(props.tokenFromStore == ''){
-        return (
-            <Redirect to = "/" />
-        )
-    } else {
         return (
             <div className="container">
             {page === 0 ? (
@@ -296,7 +289,6 @@ function OptionalQuizz(props) {
             ) : null}
             </div>
         );
-    }
 }
 
 function mapDispatchToProps(dispatch){
@@ -308,8 +300,8 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state) {
-    return { tokenFromStore: state.tokenUser }
-}
+    return { token: state.tokenUser };
+  }
 
 export default connect(
     mapStateToProps,
