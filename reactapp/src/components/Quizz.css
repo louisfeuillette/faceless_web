@@ -1,0 +1,187 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #feeddb;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.setup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+}
+.title {
+  color: #5571d7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+}
+.text {
+  color: #5571d7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  margin: 20px 0px;
+}
+.textProblems {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.input {
+  width: 100%;
+  height: 4vh;
+  background-color: #ffeedd;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: black;
+  border-bottom-width: 0.5px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+.bouton {
+  border-radius: 30px;
+  border: none;
+  width: 200px;
+  height: 30px;
+  margin: 40px 10px 10px 10px;
+  background-color: #5571d7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+.boutonRetour {
+  color: #ec9a1f;
+  background-color: #feeddb;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+}
+.boutonSuivant {
+  color: #ec9a1f;
+  background-color: #feeddb;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+}
+.divBoutonValider {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.previousQuizz {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.nextQuizz {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.divPreviousQuizz {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.divPreviousNextQuizz {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.emailError {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: red;
+  margin-top: 15px;
+}
+.problemUnselected {
+  display: flex;
+  width: 100%;
+  background-color: #5571d7;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 1px 1px 5px #535c68;
+  color: white;
+}
+.problemSelected {
+  display: flex;
+  width: 100%;
+  background-color: #ffcc99;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 1px 1px 5px #535c68;
+}
+.townsListQuizz{
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 5px;
+  max-width: 350px;
+  overflow: 'hidden';
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.genderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.avatarDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 150%;
+  height: 100px;
+  overflow-x: auto; 
+  overflow-y: hidden; 
+  white-space: nowrap;
+}
+.selectedAvatarDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectedAvatar {
+  height: 200px;
+  width: 200px;
+}
+.imgAvatar {
+  margin: 0px 15px;
+  cursor: pointer;
+}

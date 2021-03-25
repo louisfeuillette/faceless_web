@@ -1,0 +1,25 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    border-radius: 15px;
+    border: solid 1px;
+    margin-top: 20px;
+}
+.logoBouton {
+    width: 75px;
+    height: 90px;
+    padding-left: 20px;
+    margin: 15px;
+}
+.boutons {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #ec9a1f;
+    padding: 0px 15px;
+    text-decoration: none;
+    cursor: pointer;
+}

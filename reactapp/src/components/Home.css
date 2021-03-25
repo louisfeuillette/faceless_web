@@ -1,0 +1,125 @@
+.containerHome {
+  height: 100%;
+  display: flex;
+  background-color: #feeddb;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.filterIconDiv {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+.filter {
+  color: #5571D7;
+  background-color: #feeddb;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid #84817a;
+  border-radius: 45px;
+  margin-top: 20px;
+  padding: 11px 14px;
+  box-shadow: 5px 5px 5px #aaa69d;
+}
+.divCard {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #84817a;
+  margin: 20px 10px;
+  padding: 10px;
+  width: 300px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #aaa69d;
+}
+.infosTopHome {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.topCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+.bottomCardHome {
+  width: 100%;
+}
+.pseudoHome {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #5571D7;
+}
+.avatarHome {
+  width: 75px;
+  height: 75px;
+}
+.textHome {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #5571D7;
+  margin: 5px;
+}
+.titleHome {
+  color: #ec9a1f;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 10px;
+}
+.descriptionHome {
+  color: #5571D7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  margin: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+.genderHome{
+  width: 30px;
+  height: 30px;
+  padding: 0px 5px;
+}
+.badgeContainerHome {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.badgeProblemHome {
+  background-color: #5571D7;
+  border-radius: 15px;
+  margin: 5px;
+
+}
+.textBadgeProblemHome {
+  text-align: center;
+  font-size: 13px;
+  color: white;
+  font-family: "Montserrat";
+  font-weight: bold;
+  margin: 5px 15px;
+}
+

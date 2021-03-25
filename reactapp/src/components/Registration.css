@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #feeddb;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bouton {
+    border-radius: 30px;
+    border: none;
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    background-color: #5571D7;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+}

@@ -1,0 +1,217 @@
+.containerProfil {
+  height: 100%;
+  display: flex;
+  background-color: #feeddb;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.titleProfil {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: #5571d7;
+}
+.infosTopProfil {
+  width: 65%;
+  border: 1px solid;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #aaa69d;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.avatarProfil {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+.mail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.inputText {
+    background-color: #ffeedd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: black;
+    border-bottom-width: 0.5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #5571d7;
+    margin: 5px;
+}
+.unchangeableText {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #5571d7;
+  margin: 5px;
+}
+.changeableText {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #5571d7;
+  margin: 5px;
+}
+.badgeMdp {
+  background-color: #5571d7;
+  border-radius: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+.textBadgeMdp {
+  text-align: center;
+  font-size: 13px;
+  color: white;
+  font-family: "Montserrat";
+  font-weight: bold;
+  margin: 5px 15px;
+}
+.infosMidProfil {
+  width: 65%;
+  border: 1px solid;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #aaa69d;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+}
+.titleMidProfil {
+  color: #ec9a1f;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 10px 0px;
+}
+.inputTown {
+  width: 100%;
+    height: 4vh;
+    background-color: #ffeedd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: black;
+    border-bottom-width: 0.5px;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}
+.town {
+  margin: 10px;
+  width: 180px;
+  height: 105px;
+}
+.townsList{
+  border: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 5px;
+  max-width: 350px;
+  overflow: 'hidden';
+  background-color: #ffeedd;
+}
+.genderProfil {
+  margin: 10px;
+  width: 180px;
+  height: 105px;
+}
+.img {
+  width: 60px;
+  cursor: pointer;
+}
+.genderPick {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.infosBottomProfil {
+  width: 65%;
+  border: 1px solid;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #aaa69d;
+  margin-bottom: 20px;
+  z-index: 0;
+}
+.titleBottomDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.titleBottom {
+  color: #ec9a1f;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 15px 10px 5px 50px;
+}
+.description {
+  color: #5571d7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 5px 10px 5px 50px;
+}
+.inputDescription {
+  background-color: #ffeedd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: black;
+    border-bottom-width: 0.5px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #5571d7;
+    margin: 5px 10px 5px 50px;
+    word-break: break-word;
+}
+.badgeContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 5px 10px 5px 50px;
+}
+.badgeProblem {
+  background-color: #5571d7;
+  border-radius: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+.badgeProblemBis {
+  background-color: #BCC8F0;
+  border-radius: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+.textBadgeProblem {
+  text-align: center;
+  font-size: 13px;
+  color: white;
+  font-family: "Montserrat";
+  font-weight: bold;
+  margin: 5px 15px;
+}
+.boutonSaveProfil {
+  border-radius: 30px;
+  border: none;
+  width: 200px;
+  height: 30px;
+  margin: 40px 10px 10px 10px;
+  background-color: #5571d7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
