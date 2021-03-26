@@ -138,7 +138,9 @@ function ProfilScreen(props) {
         }
     };
 
-    // declenche la route pour update et save ton user en BDD 
+    // declenche la route pour update et save le user en BDD 
+    // si une reponse est envoyé, l'etat prend la valeur pour 
+    // mettre a jour l'affichage 
     const handleSaveProfil = () => {
         async function updateUser() {
         var rawResponse = await fetch("/update-profil", {

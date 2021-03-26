@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./Quizz.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function OptionalQuizz(props) {
     const [page, setPage] = useState(0);
@@ -21,7 +21,6 @@ function OptionalQuizz(props) {
     const [imgAvatarSelected, setImgAvatarSelected] = useState(
         "https://i.imgur.com/atDrheA.png"
     );
-    const [tokenState, setTokenState] = useState(props.token)
     const [error, setError] = useState("");
 
     // event du clic pour set sa description + envoi d'erreur

@@ -9,22 +9,19 @@ import "./SignIn.css";
 function SignIn(props) {
     const [signInEmail, setSignInEmail] = useState("");
     const [signInPassword, setSignInPassword] = useState("");
-
     const [userExists, setUserExists] = useState(false);
-
     const [listErrorsSignIn, setErrorsSignIn] = useState([])
 
-    var handleSubmitSignIn = async () => {
-        console.log(signInEmail, "on click signInEmail");
-        console.log(signInPassword, "on click signInPassword");
 
+    // declenche la route pour se connecter
+    // le back renvoi des erreurs selon le type
+    var handleSubmitSignIn = async () => {
         const rawData = await fetch(`/sign-in`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `emailFromFront=${signInEmail}&passwordFromFront=${signInPassword}`,
         });
         const data = await rawData.json();
-        console.log(data, "<----- After Fetch");
 
         if (data.result == true) {
             props.addToken(data.token)
@@ -36,10 +33,12 @@ function SignIn(props) {
         }
     };
 
+    // userExists ? redirect sur la home
     if (userExists) {
         return <Redirect to="/Home" />;
     }
 
+    // map pour afficher les erreurs 
     var ErrorToDisplay = listErrorsSignIn.map((error, i)=>{
         return (<p className="emailError">{error}</p>)
     })
@@ -76,11 +75,11 @@ function SignIn(props) {
 
 function mapDispatchToProps(dispatch){
     return {
-      addToken: function(arg){
-        dispatch({type: 'ADD_USER', payload: arg})
-      }
+        addToken: function(arg){
+            dispatch({type: 'ADD_USER', payload: arg})
+        }
     }
-  }
+}
 
 export default connect(
     null,

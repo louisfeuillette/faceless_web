@@ -122,7 +122,14 @@ function Message(props) {
             <div className="containerMessage">
             <Navbar />
             <div className="displayMessage">
-                <div className="convDiv">{lastMsg}</div>
+                {allLastMessages.length == 0 ? (
+                    <div className="userDiv">
+                        <p className="descriptionHome">Engage la conversation</p>
+                    </div>
+                ) : (
+                    <div className="convDiv">{lastMsg}</div>
+                )}
+                
 
                 {showProfil ? (
                     <div className="msgDiv">
@@ -147,8 +154,8 @@ function Message(props) {
                     </div>
                 ) : (
                     <div className="userDiv">
-                    <p className="descriptionHome">Tes messages s'afficheront ici</p>
-                </div>
+                        <p className="descriptionHome">Tes messages s'afficheront ici</p>
+                    </div>
                 )}
 
                 {showProfil ? (

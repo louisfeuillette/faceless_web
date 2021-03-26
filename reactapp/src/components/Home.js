@@ -141,7 +141,7 @@ function HomeScreen(props) {
         );
     });
 
-    if(props.token == "" || null){
+    if(props.token == ""){
         return (
             <Redirect to = "/" />
         )

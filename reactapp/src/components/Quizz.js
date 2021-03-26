@@ -25,6 +25,8 @@ function Quizz(props) {
   const [problems, setProblems] = useState([]);
   const [error, setError] = useState("");
 
+  // declenche la route pour verifier que le 
+  // mail n'est pas deja utilisé -> renvoi une erreur sinon
   const handleEmail = async () => {
     var rawResponse = await fetch("/email-check", {
       method: "POST",
@@ -32,7 +34,6 @@ function Quizz(props) {
       body: `emailFront=${email}`,
     });
     var response = await rawResponse.json();
-    console.log(response, "response du check email");
     setError(response.error);
     if (response.result === true) {
       setPage(page + 1);
@@ -41,10 +42,12 @@ function Quizz(props) {
     }
   };
 
+  // page precedente du quizz
   const handleClickBack = () => {
     setPage(page - 1);
   };
 
+  // page suivante du quizz
   const handlePassword = () => {
     if (password !== "") {
       setPage(page + 1);
@@ -54,6 +57,8 @@ function Quizz(props) {
     }
   };
 
+  // declenche la route pour verifier que le 
+  // pseudo n'est pas deja utilisé -> renvoi une erreur sinon
   const handlePseudo = async () => {
     var rawResponse = await fetch("/pseudo-check", {
       method: "POST",
@@ -61,7 +66,6 @@ function Quizz(props) {
       body: `pseudoFront=${pseudo}`,
     });
     var response = await rawResponse.json();
-    console.log(response, "response du pseudo check");
     setError(response.error)
     if (response.result === true && pseudo !== "") {
       setPage(page + 1);
@@ -70,13 +74,14 @@ function Quizz(props) {
     }
   };
 
+  // verifie si l'utilisateur a bien 13 ans
+  // sinon il ne peut pas se cree de compte
   const handleAge = () => {
     var la_date = new Date();
 
     // l'utilisateur a-t-il 13 ans ?
     var condition = 86400000 * 365 * 13;
 
-    console.log(la_date - new Date(age));
     if (la_date - new Date(age) < condition || age == "") {
       setError("il faut avoir 13 ans pour se créer un compte");
     } else {
@@ -84,6 +89,8 @@ function Quizz(props) {
     }
   };
 
+  // met les problem dans un tableau 
+  // s'il existe deja, il le supp
   const handleSelectProblems = (arg) => {
     var problemsCopie = [...problems];
     if (problemsCopie.includes(arg)) {
@@ -93,8 +100,8 @@ function Quizz(props) {
       setProblems(problemsCopie);
     }
   };
-  // console.log(problems, 'problem filtrer')
 
+  // declenche la route qui enregistre le profil en BDD
   const handleSaveUser = async () => {
     var rawResponse = await fetch("/sign-up-first-step", {
       method: "POST",
